@@ -5,12 +5,12 @@
     buffer = require('vinyl-buffer'),
     sourcemaps = require('gulp-sourcemaps'),
     notify = require('gulp-notify'),
-    browserSync = require('browser-sync')
+    browserSync = require('browser-sync').create();
 
 gulp.task('service', ['js'], function () {
 
-    browserSync({
-        proxy: "localhost:14156/wwwroot/"
+    browserSync.init({
+        proxy: "localhost:14156"
     });
 
     gulp.watch("./scripts/*.js", ['js-watch']);
@@ -33,8 +33,7 @@ gulp.task('js', function () {
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./wwwroot/scripts/dist'))
     .pipe(notify({ message: "Scripts task complete", onLast: true }))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream({stream:true}));
 });
-
 
 gulp.task('default', ['service']);

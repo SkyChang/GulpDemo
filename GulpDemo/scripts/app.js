@@ -4,6 +4,6 @@ var button = document.getElementById('my-button'); // add id="my-button" into ht
 button.addEventListener('click', clickBtn);
 
 function clickBtn() {
-    var c = new computer('sky');
-    alert(c.add(5, 5));
+    var c = new computer();
+    alert(c.add(7, 7));
 }

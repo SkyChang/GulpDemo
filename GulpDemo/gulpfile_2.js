@@ -3,7 +3,6 @@
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
-    uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps')
 
 gulp.task('javascript', function () {
